@@ -44,11 +44,14 @@ Im November 2026 ist das Projekt aus den be-on!-Konten umgezogen:
 
 Die Seite läuft unter **https://sc-norddoerfer.de** (seit 27.09.2026):
 
-- Domain registriert bei **IONOS**, Nameserver zeigen auf Cloudflare
-  (`gabe` und `isla.ns.cloudflare.com` – das gilt für das alte Konto; mit dem Umzug
-  der Domain ins Konto info@timandco.de vergibt Cloudflare neue Nameserver)
-- `sc-norddoerfer.de` und `www` sind Custom Domains am Worker `scnnorddoerfer`
-- `www` leitet per Redirect Rule (301) auf die Hauptdomain, „Always Use HTTPS“ ist an
+- Domain registriert bei **IONOS**, Nameserver zeigen auf das Cloudflare-Konto
+  info@timandco.de (`greg` und `zelda.ns.cloudflare.com`, seit 24.11.2026; vorher
+  `gabe`/`isla` im be-on!-Konto)
+- `sc-norddoerfer.de` und `www` sind Custom Domains am Worker `scnnorddoerfer`. Sie
+  stehen unter `routes` in `wrangler.jsonc`, jeder Deploy legt sie also mit an.
+- `www` leitet per Redirect Rule der Zone (301, Query-String bleibt erhalten) auf die
+  Hauptdomain, „Always Use HTTPS“ ist an. Beides ist Zonen-Einstellung im Dashboard,
+  nicht Teil des Repos.
 - **E-Mail bleibt bei IONOS.** MX, SPF, DKIM (`s1`/`s2-ionos._domainkey`), DMARC und
   autodiscover stehen im Cloudflare-DNS und müssen dort auf „DNS only“ bleiben
 
