@@ -9,6 +9,16 @@
   // Zeile landet ein Deploy womoeglich dort statt hier.
   "account_id": "3a73d9fc0be017b56baa90d27b702b00",
 
+  // Eigene Domains stehen hier statt nur im Dashboard, damit jeder Deploy sie
+  // mitbringt. www leitet zusaetzlich per Redirect Rule der Zone auf die
+  // Hauptdomain (im Dashboard unter Rules angelegt, nicht hier).
+  "routes": [
+    { "pattern": "sc-norddoerfer.de", "custom_domain": true },
+    { "pattern": "www.sc-norddoerfer.de", "custom_domain": true }
+  ],
+  // Die workers.dev-Adresse bleibt als Testadresse ohne eigene Domain erreichbar.
+  "workers_dev": true,
+
   // Wrangler baut vor jedem Deploy selbst. Dadurch genuegt in der Cloudflare-CI
   // der Deploy-Befehl "npx wrangler deploy" - ohne diesen Hook faende er kein ./dist.
   "build": {
