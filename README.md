@@ -27,12 +27,26 @@ ein eigener Build-Befehl im Dashboard muss nicht gesetzt sein.
 
 Beim ersten lokalen Deploy fragt Wrangler nach dem Cloudflare-Login.
 
+### Konten
+
+Im November 2026 ist das Projekt aus den be-on!-Konten umgezogen:
+
+- **GitHub:** `git@github.com:timglashoff/scnnorddoerfer.git` (vorher `beon-glashoff`;
+  die alte Adresse leitet weiter, unter dem alten Konto darf deshalb kein Repo
+  gleichen Namens neu angelegt werden)
+- **Cloudflare:** Konto info@timandco.de. Die Konto-ID steht fest in `wrangler.jsonc`,
+  damit kein Deploy versehentlich im alten Konto landet. Vor einem lokalen Deploy
+  mit `npx wrangler whoami` prüfen, dass dieses Konto angemeldet ist.
+- **Worker-Adresse ohne eigene Domain:** https://scnnorddoerfer.casa-bianca-sylt.workers.dev
+- **Workers Builds** (Deploy bei jedem Push auf `main`) wird im neuen Konto neu verbunden.
+
 ### Domain
 
 Die Seite läuft unter **https://sc-norddoerfer.de** (seit 27.09.2026):
 
 - Domain registriert bei **IONOS**, Nameserver zeigen auf Cloudflare
-  (`gabe` und `isla.ns.cloudflare.com`)
+  (`gabe` und `isla.ns.cloudflare.com` – das gilt für das alte Konto; mit dem Umzug
+  der Domain ins Konto info@timandco.de vergibt Cloudflare neue Nameserver)
 - `sc-norddoerfer.de` und `www` sind Custom Domains am Worker `scnnorddoerfer`
 - `www` leitet per Redirect Rule (301) auf die Hauptdomain, „Always Use HTTPS“ ist an
 - **E-Mail bleibt bei IONOS.** MX, SPF, DKIM (`s1`/`s2-ionos._domainkey`), DMARC und

@@ -3,6 +3,12 @@
   "name": "scnnorddoerfer",
   "compatibility_date": "2026-09-14",
 
+  // Cloudflare-Konto info@timandco.de, fest eingetragen. Die Seite ist im November
+  // 2026 aus dem be-on!-Konto hierher umgezogen; auf manchen Rechnern ist Wrangler
+  // noch mit dem alten Konto angemeldet oder hat es zwischengespeichert. Ohne diese
+  // Zeile landet ein Deploy womoeglich dort statt hier.
+  "account_id": "3a73d9fc0be017b56baa90d27b702b00",
+
   // Wrangler baut vor jedem Deploy selbst. Dadurch genuegt in der Cloudflare-CI
   // der Deploy-Befehl "npx wrangler deploy" - ohne diesen Hook faende er kein ./dist.
   "build": {
